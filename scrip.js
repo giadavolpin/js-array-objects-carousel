@@ -50,8 +50,25 @@ const slider = [
     },
 ];
 
-//cicli for
+const sliderContainer = document.getElementById('slider');
+const prevBtn = document.querySelector('.carousel-control-prev');
+const nextBTn = document.querySelector('.carousel-control-next');
 
-for(let i=0; i< slides.length; i++){
-
+function drawCarosuel(){
+    const slider = document.createElement('div');
+    slider.className = 'carousel-inner';
+    slides.forEach((value,index) =>{
+        const slide = document.createElement('div');
+        slide.className = (index === 0) ? 'carousel-item active' : 'carousel-item';
+        slide.innerHTML =
+        `   <div class="text-container">
+                <h2>${value.title}</h2>
+                <p>${value.description}</p>
+            </div>
+            <img src="${value.url}" class="d-block w-100" alt="${value.title}"/>`;
+            slider.appendChild(slide);
+    });
+    sliderContainer.insertBefore(slider, prevBtn);
 }
+
+drawCarosuel();

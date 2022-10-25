@@ -1,5 +1,5 @@
 :root{
-    height: ;
+   --black: #000;
 }
 #slider .carousel-inner, #slider .carousel-item{
     height: 100%;
