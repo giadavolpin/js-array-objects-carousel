@@ -1,6 +1,6 @@
 /* 
 Milestone 0:
-Come sempre focalizziamoci prima sulla creazione del markup statico: costruiamo il container 
+Come sempre focalizziamoci prima sulla creazione del markup statico (pagina html): costruiamo il container 
 e inseriamo l'immagine grande in modo da poter stilare lo slider.
 Milestone 1:
 Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare 
@@ -52,6 +52,6 @@ const slider = [
 
 //cicli for
 
-for(let i=0; i< slides.lenght; i++){
+for(let i=0; i< slides.length; i++){
 
 }
