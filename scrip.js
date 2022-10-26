@@ -20,7 +20,7 @@ BONUS 3:
 Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay. 
 */
 
-const slider = [
+const array_slider = [
     {
         url: 'http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg',
         title: 'Svezia',
@@ -61,11 +61,11 @@ let isForward = true;
 // faccio la funzione per l'image grande 
 function drawCarosuel(){
     //creo un div
-    const slider = document.createElement('div');
+    const image_grande = document.createElement('div');
     // ci attacco una classe
-    slider.className = 'carousel-inner';
+    image_grande.className = 'carousel-inner';
     //faccio un ciclo
-    slides.forEach((value,index) =>{
+    image_grande.forEach((value,index) =>{
         const slide = document.createElement('div');
         slide.className = (index === 0) ? 'carousel-item active' : 'carousel-item';
         //faccio ritornare nel mio HTML il seguente codice
@@ -74,9 +74,9 @@ function drawCarosuel(){
                 <p>${value.description}</p>
             </div>
             <img src="${value.url}" class="d-block w-100" alt="${value.title}"/>`;
-            slider.appendChild(slide);
+            array_slider.appendChild(slide);
     });
-    sliderContainer.insertBefore(slider, prevBtn);
+    sliderContainer.insertBefore(image_grande, prevBtn);
 }
 
 drawCarosuel();
