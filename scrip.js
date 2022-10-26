@@ -65,7 +65,7 @@ function drawCarosuel(){
     // ci attacco una classe
     image_grande.className = 'carousel-inner';
     //faccio un ciclo
-    image_grande.forEach((value,index) =>{
+    array_slider.forEach((value,index) =>{
         const slide = document.createElement('div');
         slide.className = (index === 0) ? 'carousel-item active' : 'carousel-item';
         //faccio ritornare nel mio HTML il seguente codice
@@ -74,7 +74,7 @@ function drawCarosuel(){
                 <p>${value.description}</p>
             </div>
             <img src="${value.url}" class="d-block w-100" alt="${value.title}"/>`;
-            array_slider.appendChild(slide);
+            image_grande.appendChild(slide);
     });
     sliderContainer.insertBefore(image_grande, prevBtn);
 }
