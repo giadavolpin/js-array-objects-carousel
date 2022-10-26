@@ -49,19 +49,27 @@ const slider = [
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
     },
 ];
-
+// prendo l'ID slider
 const sliderContainer = document.getElementById('slider');
+// seleziono i bottoni 
 const prevBtn = document.querySelector('.carousel-control-prev');
 const nextBTn = document.querySelector('.carousel-control-next');
-
+//
+let activeIndex = 0;
+//parametro per i bottoni:
+let isForward = true;
+// faccio la funzione per l'image grande 
 function drawCarosuel(){
+    //creo un div
     const slider = document.createElement('div');
+    // ci attacco una classe
     slider.className = 'carousel-inner';
+    //faccio un ciclo
     slides.forEach((value,index) =>{
         const slide = document.createElement('div');
         slide.className = (index === 0) ? 'carousel-item active' : 'carousel-item';
-        slide.innerHTML =
-        `   <div class="text-container">
+        //faccio ritornare nel mio HTML il seguente codice
+        slide.innerHTML = `   <div class="text-container">
                 <h2>${value.title}</h2>
                 <p>${value.description}</p>
             </div>
@@ -72,3 +80,32 @@ function drawCarosuel(){
 }
 
 drawCarosuel();
+ 
+const sliderItems = document.querySelectorAll('.carousel-item');
+console.log(sliderItems)
+function playCarousel(isForward){
+    sliderItems[activeIndex].classList.add('active');
+   if(isNext){
+    //mandare avanti con il btn
+    activeIndex = (activeIndex === sliderItems.length -1) ? 0 : activeIndex +1;
+
+   } else {
+   //mandare indietro con il btn
+    activeIndex = (activeIndex === 0) ? sliderItems.length -1 : activeIndex -1;
+    
+}
+    sliderItems[activeIndex].classList.add('active');
+
+};
+
+nextBTn.addEventListener('click', function(){
+    playCarousel(true);
+});
+prevBTn.addEventListener('click', function(){
+    playCarousel(false);
+});
+
+
+
+//qual è la differenza tra append e appendChild? 
+// 
